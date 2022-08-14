@@ -18,12 +18,17 @@ class JobSearchPage(object):
         return browserFactory.chrome_driver().find_element(By.NAME, 'location')
 
     def search_submit(self) -> webdriver.remote.webelement.WebElement:
-        return browserFactory.chrome_driver().find_element(By.XPATH, '//button[@data-tracking-control-name="homepage-jobseeker_search-jobs-search-btn"]')
+        return browserFactory.chrome_driver().find_element(
+            By.XPATH,
+            '//button[@data-tracking-control-name="homepage-jobseeker_search-jobs-search-btn"]'
+        )
 
     def fillin_keyword(self, keyword) -> None:
+        self.keyword_input().clear()
         self.keyword_input().send_keys(keyword)
 
     def fillin_location(self, location) -> None:
+        self.location_input().clear()
         self.location_input().send_keys(location)
 
     def click_search_submit(self) -> None:

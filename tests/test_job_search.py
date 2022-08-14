@@ -1,7 +1,7 @@
 from pages.job_search_page import jobSearchPage
 from browsers.browser_factory import browserFactory
 import pytest
-from time import sleep
+# from time import sleep
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
@@ -26,12 +26,13 @@ def test_fillin_locationd():
     # sleep(5)
 
 
+@pytest.mark.skip(reason="no way of currently testing this")
 def test_fillin_keyword_location_submit():
     jobSearchPage.open()
     jobSearchPage.fillin_keyword('selenium')
     jobSearchPage.fillin_location('Gothenburg, Vastra Gotaland County, Sweden')
     jobSearchPage.click_search_submit()
-    sleep(5)
+    # sleep(5)
 
 
 def teardown():
