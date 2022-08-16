@@ -23,6 +23,15 @@ class JobSearchPage(object):
             '//button[@data-tracking-control-name="homepage-jobseeker_search-jobs-search-btn"]'
         )
 
+    def sign_in(self) -> webdriver.remote.webelement.WebElement:
+        return browserFactory.chrome_driver().find_element(
+            By.XPATH,
+            '//a[@data-tracking-control-name="guest_homepage-jobseeker_nav-header-signin"]'
+        )
+
+    def click_signin(self) -> None:
+        self.sign_in().click()
+
     def fillin_keyword(self, keyword) -> None:
         self.keyword_input().clear()
         self.keyword_input().send_keys(keyword)
